@@ -1,43 +1,25 @@
-import Head from "next/head";
-import { GraphQLClient, gql } from "graphql-request";
+import Head from 'next/head';
+import { useQuery, gql } from '@apollo/client';
+import Carousel from '../components/Carousel';
 
-export const getStaticProps = async () => {
-  const endPoint =
-    "https://graphql.contentful.com/content/v1/spaces/0s0kjd52m3s3";
-
-  const graphQLClient = new GraphQLClient(endPoint, {
-    headers: {
-      authorization: `Bearer TpBId6BcrKUm2Ej8S_-xohiBoJaRkQAbTDM5Lll41po`,
-    },
-  });
-
-  const productCollections = gql`
-    {
-      produkCollection(order: hargaProduk_ASC) {
-        items {
-          namaProduk
-          hargaProduk
-          fotoProdukCollection {
-            items {
-              url
-            }
+const productCollections = gql`
+  query getProductCollections {
+    produkCollection(order: hargaProduk_ASC) {
+      items {
+        namaProduk
+        hargaProduk
+        fotoProdukCollection {
+          items {
+            url
           }
         }
       }
     }
-  `;
+  }
+`;
 
-  const products = await graphQLClient.request(productCollections);
-
-  return {
-    props: {
-      products,
-    },
-  };
-};
-
-export default function Home({ products }) {
-  console.log(products);
+export default function Home() {
+  const { data } = useQuery(productCollections);
   return (
     <div>
       <Head>
@@ -45,6 +27,7 @@ export default function Home({ products }) {
         <meta name="description" content="Proyek Bunga" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Carousel></Carousel>
     </div>
   );
 }
