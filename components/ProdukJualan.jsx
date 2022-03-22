@@ -11,7 +11,6 @@ const GET_PRODUK_JUALAN = gql`
         jenisKategoriProduk {
           namaKategoriProduk
         }
-        alamatUrl
       }
     }
   }
@@ -38,7 +37,7 @@ const ProdukJualan = () => {
                 key={item.jenisKategoriProduk.namaKategoriProduk}
                 style={{ backgroundImage }}
               >
-                <Link href={item.alamatUrl}>
+                <Link href={item.jenisKategoriProduk.namaKategoriProduk}>
                   <a className="produkJualanLink">
                     <span className="heading heading--subtitle color--whiteOnShadow text--bold produkJualan-text">
                       {item.jenisKategoriProduk.namaKategoriProduk}
