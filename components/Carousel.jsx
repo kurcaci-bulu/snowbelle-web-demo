@@ -4,7 +4,7 @@ import { useQuery, gql } from '@apollo/client';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 
-const getCarousels = gql`
+const QUERY_CAROUSEL = gql`
   query getCarousels {
     carouselCollection {
       items {
@@ -18,7 +18,7 @@ const getCarousels = gql`
 `;
 
 const Carousel = () => {
-  const { data, loading } = useQuery(getCarousels);
+  const { data, loading } = useQuery(QUERY_CAROUSEL);
 
   if (loading) <></>;
 
