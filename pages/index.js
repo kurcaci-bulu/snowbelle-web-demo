@@ -20,7 +20,7 @@ const productCollections = gql`
   }
 `;
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const { data } = await apolloClient.query({
     query: productCollections,
   });
