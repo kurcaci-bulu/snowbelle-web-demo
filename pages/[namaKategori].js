@@ -47,7 +47,6 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  console.log(params);
   const { data } = await apolloClient.query({
     query: GET_ALL_RELATED_PRODUK,
     variables: {
