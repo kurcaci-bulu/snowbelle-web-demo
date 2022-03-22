@@ -25,3 +25,16 @@ html {
 .heading--paragraph {
   font-size: 18px;
 }
+
+.heading--subtitle {
+  font-size: 24px;
+}
+
+.color--whiteOnShadow {
+  color: #fff;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.text--bold {
+  font-weight: bold;
+}

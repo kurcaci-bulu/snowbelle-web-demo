@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useQuery, gql } from '@apollo/client';
 import Carousel from '../components/Carousel';
 import TentangKami from '../components/TentangKami';
-
+import ProdukJualan from '../components/ProdukJualan';
 const productCollections = gql`
   query getProductCollections {
     produkCollection(order: hargaProduk_ASC) {
@@ -30,6 +30,7 @@ export default function Home() {
       </Head>
       <Carousel></Carousel>
       <TentangKami />
+      <ProdukJualan></ProdukJualan>
     </div>
   );
 }
