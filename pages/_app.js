@@ -3,6 +3,7 @@ import apolloClient from '../lib/apolloClient';
 import '../styles/reset.css';
 import '../styles/globals.css';
 import '../styles/carousels.css';
+import '../styles/tentangKami.css';
 
 function MyApp({ Component, pageProps }) {
   return (
