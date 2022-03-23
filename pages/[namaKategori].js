@@ -1,5 +1,5 @@
 import { gql, useLazyQuery } from '@apollo/client';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useMemo } from 'react';
 import apolloClient from '../lib/apolloClient';
 
 const GET_ALAMAT_URL = gql`
@@ -129,6 +129,13 @@ const Stuff = ({ data, params }) => {
     [newDataAsc]
   );
 
+  const pageTitle = useMemo(() => {
+    if (params === 'full-chrysant') return 'Full Chrysant Packages';
+    else if (params === 'full-rose') return 'Full Rose Packages';
+    else if (params === 'produk') return 'Special Packages';
+    else return 'Chrysant + Rose Combo Packages';
+  }, [params]);
+
   useEffect(() => {
     if (newDataAsc === undefined) loadDataAsc(); //to get data again when newDataAsc === undefined
   }, [newDataAsc]);
@@ -143,10 +150,12 @@ const Stuff = ({ data, params }) => {
     }
   }, [data]);
 
+  console.log(params);
+
   return (
     <>
       <div className="container">
-        <h1 className="heading heading--title">Produk - </h1>
+        <h1 className="heading heading--title">{pageTitle}</h1>
         <div className="produkProduk-filter">
           <span className="produkProduk-filterButton" onClick={handleClickDescButton}>
             Urut dari <b>paling mahal</b> ke <b>paling murah</b>
