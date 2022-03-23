@@ -63,31 +63,41 @@ export const getStaticProps = async ({ params }) => {
 
 const Stuff = ({ data }) => {
   return (
-    <div className="container">
-      <h1 className="heading heading--title">Produk - </h1>
-      <ul className="produkProduk-produkList">
-        {data?.produkCollection.items.map((item) => {
-          return (
-            <>
-              <li className="produkProduk-produkItem">
-                <div className="produkProduk-gambarList">
-                  {item.fotoProdukCollection.items.map((gbr) => {
-                    const backgroundImage = `url(${gbr.url})`;
-                    return (
-                      <div className="produkProduk-gambarItem" style={{ backgroundImage }}></div>
-                    );
-                  })}
-                </div>
-                <h3 className="produkProduk-nama heading heading--small">{item.namaProduk}</h3>
-                <h4 className="produkProduk-harga heading heading--mini">
-                  {item.hargaProduk !== null ? 'Rp. ' + item.hargaProduk + ',-' : 'menyusul'}
-                </h4>
-              </li>
-            </>
-          );
-        })}
-      </ul>
-    </div>
+    <>
+      <div className="container">
+        <h1 className="heading heading--title">Produk - </h1>
+        <div className="produkProduk-filter">
+          <span className="produkProduk-filterButton">
+            Urut dari <b>paling mahal</b> ke <b>paling murah</b>
+          </span>
+          <span className="produkProduk-filterButton">
+            Urut dari <b>paling murah</b> ke <b>paling mahal</b>
+          </span>
+        </div>
+        <ul className="produkProduk-produkList">
+          {data?.produkCollection.items.map((item) => {
+            return (
+              <>
+                <li className="produkProduk-produkItem">
+                  <div className="produkProduk-gambarList">
+                    {item.fotoProdukCollection.items.map((gbr) => {
+                      const backgroundImage = `url(${gbr.url})`;
+                      return (
+                        <div className="produkProduk-gambarItem" style={{ backgroundImage }}></div>
+                      );
+                    })}
+                  </div>
+                  <h3 className="produkProduk-nama heading heading--small">{item.namaProduk}</h3>
+                  <h4 className="produkProduk-harga heading heading--mini">
+                    {item.hargaProduk !== null ? 'Rp. ' + item.hargaProduk + ',-' : 'menyusul'}
+                  </h4>
+                </li>
+              </>
+            );
+          })}
+        </ul>
+      </div>
+    </>
   );
 };
 
