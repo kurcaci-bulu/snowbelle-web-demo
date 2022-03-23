@@ -1,6 +1,6 @@
 .produkJualanList {
   display: grid;
-  grid-template-columns: 25% repeat(4, 25%);
+  grid-template-columns: repeat(4, calc(25% - 5px));
   grid-column-gap: 10px;
   grid-template-rows: 300px;
 }
