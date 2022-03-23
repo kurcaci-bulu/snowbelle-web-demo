@@ -95,27 +95,47 @@ const Stuff = ({ data, params }) => {
       variables: {
         slug: params,
       },
+      errorPolicy: 'all',
+      fetchPolicy: 'cache-and-network',
     }
   );
 
-  const [loadDataAsc, { data: newDataAsc, loading: dataAscLoading }] = useLazyQuery(
+  const [loadDataAsc, { data: newDataAsc, loading: dataAscLoading, error }] = useLazyQuery(
     GET_ALL_RELATED_PRODUK_ASC,
     {
       variables: {
         slug: params,
       },
+      errorPolicy: 'all',
+      fetchPolicy: 'cache-and-network',
     }
   );
 
-  const handleClickDescButton = useCallback(() => {
-    loadDataDesc();
-    setProducts(newDataDesc);
-  }, [newDataDesc]);
+  const handleClickDescButton = useCallback(
+    (e) => {
+      e.preventDefault();
+      loadDataDesc();
+      setProducts(newDataDesc);
+    },
+    [newDataDesc]
+  );
 
-  const handleClickAscButton = useCallback(() => {
-    loadDataAsc();
-    setProducts(newDataAsc);
+  const handleClickAscButton = useCallback(
+    (e) => {
+      e.preventDefault();
+      loadDataAsc();
+      setProducts(newDataAsc);
+    },
+    [newDataAsc]
+  );
+
+  useEffect(() => {
+    if (newDataAsc === undefined) loadDataAsc(); //to get data again when newDataAsc === undefined
   }, [newDataAsc]);
+
+  useEffect(() => {
+    if (newDataDesc === undefined) loadDataDesc(); //to get data again when newDataDesc === undefined
+  }, [newDataDesc]);
 
   useEffect(() => {
     if (data) {
@@ -123,7 +143,6 @@ const Stuff = ({ data, params }) => {
     }
   }, [data]);
 
-  if (dataDescLoading || dataAscLoading) <h1>loading...</h1>;
   return (
     <>
       <div className="container">
@@ -136,32 +155,36 @@ const Stuff = ({ data, params }) => {
             Urut dari <b>paling murah</b> ke <b>paling mahal</b>
           </span>
         </div>
-        <ul className="produkProduk-produkList">
-          {products?.produkCollection?.items.map((item, id) => {
-            return (
-              <React.Fragment key={id}>
-                <li className="produkProduk-produkItem">
-                  <div className="produkProduk-gambarList">
-                    {item.fotoProdukCollection.items.map((gbr, idx) => {
-                      const backgroundImage = `url(${gbr.url})`;
-                      return (
-                        <div
-                          className="produkProduk-gambarItem"
-                          style={{ backgroundImage }}
-                          key={idx}
-                        ></div>
-                      );
-                    })}
-                  </div>
-                  <h3 className="produkProduk-nama heading heading--small">{item.namaProduk}</h3>
-                  <h4 className="produkProduk-harga heading heading--mini">
-                    {item.hargaProduk !== null ? 'Rp. ' + item.hargaProduk + ',-' : 'menyusul'}
-                  </h4>
-                </li>
-              </React.Fragment>
-            );
-          })}
-        </ul>
+        {dataDescLoading || dataAscLoading ? (
+          <h1>loading...</h1>
+        ) : (
+          <ul className="produkProduk-produkList">
+            {products?.produkCollection?.items.map((item, id) => {
+              return (
+                <React.Fragment key={id}>
+                  <li className="produkProduk-produkItem">
+                    <div className="produkProduk-gambarList">
+                      {item.fotoProdukCollection.items.map((gbr, idx) => {
+                        const backgroundImage = `url(${gbr.url})`;
+                        return (
+                          <div
+                            className="produkProduk-gambarItem"
+                            style={{ backgroundImage }}
+                            key={idx}
+                          ></div>
+                        );
+                      })}
+                    </div>
+                    <h3 className="produkProduk-nama heading heading--small">{item.namaProduk}</h3>
+                    <h4 className="produkProduk-harga heading heading--mini">
+                      {item.hargaProduk !== null ? 'Rp. ' + item.hargaProduk + ',-' : 'menyusul'}
+                    </h4>
+                  </li>
+                </React.Fragment>
+              );
+            })}
+          </ul>
+        )}
       </div>
     </>
   );
