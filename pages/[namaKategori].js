@@ -150,8 +150,6 @@ const Stuff = ({ data, params }) => {
     }
   }, [data]);
 
-  console.log(params);
-
   return (
     <>
       <div className="container">
