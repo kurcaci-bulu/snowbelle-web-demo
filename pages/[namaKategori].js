@@ -88,7 +88,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 const Stuff = ({ data, params }) => {
-  const [products, setProducts] = useState({});
+  const [products, setProducts] = useState(data);
 
   const [loadDataDesc, { data: newDataDesc, loading: dataDescLoading }] = useLazyQuery(
     GET_ALL_RELATED_PRODUK_DESC,
@@ -144,12 +144,6 @@ const Stuff = ({ data, params }) => {
   useEffect(() => {
     if (newDataDesc === undefined) loadDataDesc(); //to get data again when newDataDesc === undefined
   }, [newDataDesc]);
-
-  useEffect(() => {
-    if (data) {
-      setProducts(data);
-    }
-  }, [data]);
 
   return (
     <>
