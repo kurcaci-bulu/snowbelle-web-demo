@@ -1,27 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useQuery, gql } from '@apollo/client';
 
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 
-const QUERY_CAROUSEL = gql`
-  query getCarousels {
-    carouselCollection {
-      items {
-        gambarCarousel {
-          url
-        }
-        linkCarousel
-      }
-    }
-  }
-`;
-
-const Carousel = () => {
-  const { data, loading } = useQuery(QUERY_CAROUSEL);
-
-  if (loading) <></>;
-
+const Carousel = ({ data }) => {
   return (
     <>
       <Swiper
@@ -31,7 +13,7 @@ const Carousel = () => {
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        onSlideChange={() => console.log('slide change')}
+        autoplay={{ delay: 3000 }}
       >
         {data?.carouselCollection.items.map((item) => {
           const backgroundImage = `url(${item.gambarCarousel.url})`;

@@ -1,28 +1,6 @@
-import { useQuery, gql } from '@apollo/client';
 import Link from 'next/link';
 
-const GET_PRODUK_JUALAN = gql`
-  query produkJualan {
-    coverKategoriProdukCollection {
-      items {
-        gambarCoverKategoriProduk {
-          url
-        }
-        jenisKategoriProduk {
-          namaKategoriProduk
-        }
-      }
-    }
-  }
-`;
-
-const ProdukJualan = () => {
-  const { data } = useQuery(GET_PRODUK_JUALAN);
-  console.log(
-    data?.coverKategoriProdukCollection.items.map(
-      (item) => item.jenisKategoriProduk.namaKategoriProduk
-    )
-  );
+const ProdukJualan = ({ data }) => {
   return (
     <>
       <div className="container">

@@ -36,25 +36,7 @@ const options = {
   },
 };
 
-const GET_TENTANG_KAMI = gql`
-  query tentangKami {
-    tentangKamiCollection {
-      items {
-        sys {
-          id
-        }
-        judulTentangKami
-        kontenTentangKami {
-          json
-        }
-      }
-    }
-  }
-`;
-
-const TentangKami = () => {
-  const { data } = useQuery(GET_TENTANG_KAMI);
-
+const TentangKami = ({ data }) => {
   return (
     <div className="container">
       <h2 className="heading heading--title">
