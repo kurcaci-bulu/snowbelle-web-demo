@@ -75,7 +75,7 @@ export const getStaticProps = async ({ params }) => {
     variables: {
       slug: params.namaKategori,
     },
-    fetchPolicy: 'cache-and-network',
+    fetchPolicy: 'network-only',
   });
 
   return {
