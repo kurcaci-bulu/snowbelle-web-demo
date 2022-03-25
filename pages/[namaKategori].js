@@ -83,7 +83,7 @@ export const getStaticProps = async ({ params }) => {
       data,
       params: params.namaKategori,
     },
-    revalidate: 10,
+    revalidate: 1,
   };
 };
 
