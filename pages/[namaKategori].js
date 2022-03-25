@@ -75,6 +75,7 @@ export const getStaticProps = async ({ params }) => {
     variables: {
       slug: params.namaKategori,
     },
+    fetchPolicy: 'cache-first',
   });
 
   return {
