@@ -113,6 +113,7 @@ export const getStaticProps = async ({ params }) => {
 
 const Stuff = ({ data, dataCover, params }) => {
   const [products, setProducts] = useState(data);
+  const [produkDitanya, setProdukDitanya] = useState('');
 
   const [loadDataDesc, { data: newDataDesc, loading: dataDescLoading }] = useLazyQuery(
     GET_ALL_RELATED_PRODUK_DESC,
@@ -169,6 +170,14 @@ const Stuff = ({ data, dataCover, params }) => {
     if (newDataDesc === undefined) loadDataDesc(); //to get data again when newDataDesc === undefined
   }, [newDataDesc]);
 
+  const handleClickToBuy = useCallback(() => {
+    const pertanyaan = encodeURI(
+      `Hallo Snow Belle Florist, saya berminat dengan ${produkDitanya}, apa bisa dibantu?`
+    );
+    const url = 'https://api.whatsapp.com/send?phone=+6281281116881.&text=Hallo%2C' + pertanyaan;
+    window.open(url, '_blank').focus();
+  }, [produkDitanya]);
+
   return (
     <>
       <section className="poster2">
@@ -201,6 +210,15 @@ const Stuff = ({ data, dataCover, params }) => {
               return (
                 <React.Fragment key={id}>
                   <li className="produkProduk-produkItem">
+                    <div
+                      className="produkProduk-cta"
+                      onClick={() => {
+                        setProdukDitanya(item.namaProduk);
+                        handleClickToBuy();
+                      }}
+                    >
+                      Kontak untuk instant order
+                    </div>
                     <div className="produkProduk-gambarList">
                       {item.fotoProdukCollection.items.map((gbr, idx) => {
                         const backgroundImage = `url(${gbr.url})`;
