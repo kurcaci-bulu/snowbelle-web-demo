@@ -11,7 +11,10 @@ const ProdukJualan = ({ data }) => {
           {data?.coverKategoriProdukCollection.items.map((item) => {
             const backgroundImage = `url(${item.gambarCoverKategoriProduk.url})`;
             return (
-              <Link href={item.jenisKategoriProduk.namaKategoriProduk}>
+              <Link
+                href={item.jenisKategoriProduk.namaKategoriProduk}
+                key={item.jenisKategoriProduk.namaKategoriProduk}
+              >
                 <a className="featured-item" href="item-1.html">
                   <div className="featured-imageHover">
                     <div className="featured-image" style={{ backgroundImage }} />
