@@ -215,7 +215,9 @@ const Stuff = ({ data, dataCover, params }) => {
                     </div>
                     <h3 className="produkProduk-nama heading heading--small">{item.namaProduk}</h3>
                     <h4 className="produkProduk-harga heading heading--mini">
-                      {item.hargaProduk !== null ? 'Rp. ' + item.hargaProduk + ',-' : 'menyusul'}
+                      {item.hargaProduk !== null
+                        ? 'Rp. ' + item.hargaProduk.toLocaleString('id-ID') + ',-'
+                        : 'menyusul'}
                     </h4>
                   </li>
                 </React.Fragment>
