@@ -38,14 +38,25 @@ const options = {
 
 const TentangKami = ({ data }) => {
   return (
-    <div className="container">
-      <h2 className="heading heading--title">
-        {data?.tentangKamiCollection.items[0].judulTentangKami}
-      </h2>
-      <p className="heading heading--paragraph">
-        {documentToHtmlString(data?.tentangKamiCollection.items[0].kontenTentangKami.json, options)}
-      </p>
-    </div>
+    <>
+      <section className="about wrapMe--normal">
+        <div className="about-text">
+          <h2 className="title--section">
+            <span className="title-sub">
+              {data?.tentangKamiCollection.items[0].judulTentangKami}
+            </span>
+          </h2>
+          <article className="about-article">
+            <p className="paragraph about-paragraph">
+              {documentToHtmlString(
+                data?.tentangKamiCollection.items[0].kontenTentangKami.json,
+                options
+              )}
+            </p>
+          </article>
+        </div>
+      </section>
+    </>
   );
 };
 

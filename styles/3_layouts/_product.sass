@@ -1,0 +1,38 @@
+.product
+	+break-point(mobile)
+		padding-top: $m--padding-section
+		padding-bottom: $m--padding-section
+		border-bottom: 1px solid $navbar-color
+	+break-point(tablet)
+		padding-top: $t--padding-section
+		padding-bottom: $t--padding-section
+		border-bottom: 1px solid $navbar-color
+	+break-point(desktop)
+		padding-top: $d--padding-section
+		padding-bottom: $d--padding-section
+
+	&-contentWrapper
+		display: flex
+		+break-point(mobile)
+			flex-wrap: wrap
+	&-image
+		@extend %cover-bg
+		+break-point(mobile)
+			width: 100%
+			height: 50vw
+		+break-point(tablet)
+			width: 50%
+			height: 300px
+		+break-point(desktop)
+			width: 50%
+			height: 300px
+	&-description
+		+break-point(mobile)
+			width: 100%
+			padding-top: 15px
+		+break-point(tablet)
+			width: 50%
+			padding-left: 35px
+		+break-point(desktop)
+			width: 50%
+			padding-left: 50px

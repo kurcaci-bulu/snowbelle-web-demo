@@ -1,0 +1,86 @@
+.footer
+  display: flex
+  width: 100%
+  align-items: center
+  justify-items: center
+  +break-point(mobile)
+    flex-wrap: wrap-reverse
+  +break-point(tablet)
+    flex-wrap: wrap-reverse
+  +break-point(desktop)
+    height: 250px
+    padding-left: map-get($body-paddings, 'desktop')
+
+  &-left
+    +break-point(mobile)
+      display: flex
+      width: 100%
+      align-items: center
+      height: 170px
+      flex-direction: column
+      padding-left: map-get($body-paddings, 'tablet')
+      padding-right: map-get($body-paddings, 'tablet')
+    +break-point(tablet)
+      display: flex
+      width: 100%
+      align-items: center
+      height: 170px
+      padding-left: map-get($body-paddings, 'tablet')
+      padding-right: map-get($body-paddings, 'tablet')
+    +break-point(desktop)
+      width: 25%
+
+  &-right
+    display: flex
+    background-color: $color-highlight
+    +break-point(mobile)
+      display: none
+    +break-point(tablet)
+      justify-content: center
+      padding-top: 20px
+      padding-bottom: 20px
+      width: 100%
+    +break-point(desktop)
+      align-items: center
+      width: 75%
+      padding-left: 20px
+      margin-left: 20px
+      height: 100%
+
+  &-text
+    color: $color-text-footer
+    margin-bottom: 1em
+    +break-point(mobile)
+      text-align: center
+      font-size: $m--fontsize-footer
+    +break-point(tablet)
+      font-size: $t--fontsize-footer
+    +break-point(desktop)
+      text-align: right
+      font-size: $d--fontsize-footer
+
+  &-item
+    display: inline-block
+    text-align: center
+    text-transform: uppercase
+    +break-point(mobile)
+      width: $m--footer-item-width
+    +break-point(tablet)
+      width: $t--footer-item-width
+    +break-point(desktop)
+      width: $d--footer-item-width
+  &-logo
+    +break-point(mobile)
+      margin-bottom: $m--footer-padding-logo
+      width: 50%
+    +break-point(tablet)
+      background-position: top right
+      width: 50%
+      padding-right: 15px
+    +break-point(desktop)
+      background-position: top right
+      margin-bottom: $d--footer-padding-logo
+  &-textWrapper
+    +break-point(tablet)
+      width: 50%
+      margin-left: 15px

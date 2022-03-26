@@ -1,0 +1,24 @@
+.poster
+  width: 100%
+  height: 100vh
+  display: block
+  position: relative
+  overflow: hidden
+  +break-point(mobile)
+    max-height: 400px
+  +break-point(tablet)
+    max-height: 400px
+  +break-point(desktop)
+    max-height: 1200px
+  &-video
+    display: block
+    height: 100%
+    width: 100%
+    object-fit: cover
+  &-nav
+    // +break-point(mobile)
+    //   position: fixed
+    // +break-point(tablet)
+    //   position: fixed
+    +break-point(desktop)
+      position: absolute

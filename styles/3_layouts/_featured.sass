@@ -1,0 +1,102 @@
+.featured
+  +break-point(mobile)
+    padding-top: $m--padding-section
+    padding-bottom: $m--padding-section
+  +break-point(tablet)
+    padding-top: $t--padding-section
+    padding-bottom: $t--padding-section
+  +break-point(desktop)
+    padding-top: $d--padding-section
+    padding-bottom: $d--padding-section
+
+  &-list
+    display: flex
+    justify-content: flex-start
+    +break-point(mobile)
+      flex-wrap: wrap
+      flex-direction: column
+    +break-point(tablet)
+      margin-left: -#{$t--featured-item-padding}
+      margin-right: -#{$t--featured-item-padding}
+    +break-point(desktop)
+      margin-left: -#{$d--featured-item-padding}
+      margin-right: -#{$d--featured-item-padding}
+  &-item
+    +break-point(mobile)
+      display: flex
+      flex-direction: row
+      margin-bottom: 10px
+    +break-point(tablet)
+      display: inline-block
+      position: relative
+      width: calc((100% / 3) - (#{$t--featured-item-padding} *2))
+      margin-left: #{$t--featured-item-padding}
+      margin-right: #{$t--featured-item-padding}
+    +break-point(desktop)
+      display: inline-block
+      position: relative
+      width: calc((100% / 3) - (#{$d--featured-item-padding} *2))
+      margin-left: #{$d--featured-item-padding}
+      margin-right: #{$d--featured-item-padding}
+
+  &-imageHover
+    overflow: hidden
+    +break-point(mobile)
+      width: 130px
+      height: 130px
+      margin-right: 12px
+    +break-point(tablet)
+      width: 100%
+      height: 180px
+    +break-point(desktop)
+      width: 100%
+      height: 290px
+  &-image
+    @extend %cover-bg
+    transform: scale(1)
+    width: 100%
+    height: 100%
+    // background-image: url(#{$featured-prod-url--1})
+    transition: $transition
+
+  &-mainTitle
+    margin-top: 20px
+    margin-bottom: 20px
+    color: $color-text-category_title
+    +break-point(mobile)
+      font-size: $m--fontsize-featured-title_main
+      margin-bottom: 14px
+    +break-point(tablet)
+      text-align: center
+      margin-bottom: 20px
+      font-size: $t--fontsize-featured-title_main
+    +break-point(desktop)
+      text-align: center
+      margin-bottom: 20px
+      font-size: $d--fontsize-featured-title_main
+  &-subTitle
+    color: $color-text-category_sub
+    +break-point(mobile)
+      +ellipsis-multiline($m--fontsize-featured-title_sub, 1.6, 2)
+      font-size: $m--fontsize-featured-title_sub
+
+    +break-point(tablet)
+      +ellipsis-multiline($t--fontsize-featured-title_sub, 1.6, 3)
+      font-size: $t--fontsize-featured-title_sub
+    +break-point(desktop)
+      +ellipsis-multiline($d--fontsize-featured-title_sub, 1.6, 3)
+      font-size: $d--fontsize-featured-title_sub
+
+  &-button
+    margin-top: 20px
+    color: $color-text-category_button
+    +break-point(mobile)
+      display: none
+    +break-point(tablet)
+      font-size: $t--fontsize-section-button_sub
+    +break-point(desktop)
+      font-size: $d--fontsize-section-button_sub
+
+  &-contentWrapper
+    +break-point(mobile)
+      width: calc(100% - 130px - 12px)

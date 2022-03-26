@@ -1,0 +1,66 @@
+.nav
+  width: 100%
+  font-size: $navbar-font-size
+  transition: $transition
+  +break-point(mobile)
+    position: fixed
+    z-index: 10
+    top: -100vh
+    right: 0
+    left: 0
+    background-color: $color-nav-ribbon
+    padding: 60px 0 30px
+  +break-point(tablet)
+    position: fixed
+    z-index: 10
+    top: -100vh
+    right: 0
+    left: 0
+    background-color: $color-nav-ribbon
+    padding: 60px 0 30px
+  +break-point(desktop)
+    color: white
+    bottom: 0
+    height: $navbar-tab-height
+    padding: $navbar-tab-padding
+    background-color: $navbar-color
+    padding-left: map-get($body-paddings, 'desktop')
+    padding-right: map-get($body-paddings, 'desktop')
+
+  &-list
+    display: flex
+    +break-point(mobile)
+      flex-direction: column
+    +break-point(tablet)
+      flex-direction: column
+    +break-point(desktop)
+      align-items: center
+      justify-content: center
+  &-item
+    padding: 15px 10px
+    +break-point(mobile)
+      display: block
+      text-align: center
+      margin-bottom: 0px
+      &:last-child
+        margin-bottom: 0
+    +break-point(tablet)
+      display: block
+      text-align: center
+      margin-bottom: 5px
+      &:last-child
+        margin-bottom: 0
+    +break-point(desktop)
+      display: inline-block
+      margin-right: 30px
+      &:last-child
+        margin-right: 0
+
+  &-burger
+    position: fixed
+    top: 20px
+    right: 20px
+    // +break-point(mobile)
+    // +break-point(tablet)
+    +break-point(desktop)
+      display: none

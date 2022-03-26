@@ -1,0 +1,35 @@
+.title
+  &--section
+    margin: 0 0 20px
+
+.title
+  &-main
+    display: block
+    position: relative
+    color: $color-text-body
+    +break-point(mobile)
+      font-size: $m--fontsize-section-title
+    +break-point(tablet)
+      font-size: $t--fontsize-section-title
+    +break-point(desktop)
+      font-size: $d--fontsize-section-title
+
+  &-sub
+    display: block
+    position: relative
+    text-transform: uppercase
+    color: $color-text-title_sub
+    +break-point(mobile)
+      font-size: $m--fontsize-section-title
+    +break-point(tablet)
+      font-size: $t--fontsize-section-title
+    +break-point(desktop)
+      font-size: $d--fontsize-section-title
+    // &:before
+    //   content: ''
+    //   width: 100px
+    //   background-color: gold
+    //   height: 2px
+    //   position: absolute
+    //   display: inline-block
+    //   top: -10px

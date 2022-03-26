@@ -1,0 +1,42 @@
+@mixin break-point($bp)
+  @if $bp == mobile
+    @media screen and (max-width: $tablet - 1px)
+      @content
+
+  @else if $bp == tablet
+    @media screen and (min-width: $tablet) and (max-width: $desktop - 1px)
+      @content
+
+  @else if $bp == desktop
+    @media screen and (min-width: $desktop)
+      @content
+
+  @else
+    @error "check your break-point mixin"
+
+@mixin content-wrapper($max-value)
+  width: 100%
+  margin-left: auto
+  margin-right: auto
+  @if $max-value == mobile
+    max-width: 550px
+  @if $max-value == tablet
+    max-width: 900px
+  @if $max-value == desktop
+    max-width: 1400px
+
+@mixin ellipsis-multiline($font-size, $line-height, $lines-to-show )
+
+  display: block
+  display: -webkit-box
+
+  height: $font-size * $line-height * $lines-to-show
+
+  font-size: $font-size
+  line-height: $line-height
+  -webkit-line-clamp: $lines-to-show
+
+  -webkit-box-orient: vertical
+
+  overflow: hidden
+  text-overflow: ellipsis

@@ -1,0 +1,20 @@
+.burger
+  width: $burger-size
+  height: $burger-size
+  border-radius: 100px
+  background-color: #fff
+  display: flex
+  align-items: center
+  justify-content: center
+  &-line
+    @extend %burger-default
+    &:before,
+    &:after
+      content: ''
+      position: absolute
+      @extend %burger-default
+
+    &:before
+      top: $burger-spacing
+    &:after
+      bottom: $burger-spacing

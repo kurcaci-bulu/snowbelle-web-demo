@@ -1,0 +1,46 @@
+.about
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  +break-point(mobile)
+    height: $m--about-wrapper-height
+  +break-point(tablet)
+    height: $t--about-wrapper-height
+  +break-point(desktop)
+    height: $d--about-wrapper-height
+  &:before
+    content: ''
+    @extend %cover-bg
+    background-position: top center
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: -1
+    background-image: url(#{$about-bg-url})
+
+    +break-point(mobile)
+    +break-point(tablet)
+    +break-point(desktop)
+      // margin-left: map-get($body-paddings, 'desktop') * -1
+      // margin-right: map-get($body-paddings, 'desktop') * -1
+
+  &-text
+    +break-point(mobile)
+      +content-wrapper(tablet)
+      padding-left: map-get($body-paddings, 'mobile')
+      padding-right: 10vw
+    +break-point(tablet)
+      +content-wrapper(tablet)
+      padding-left: map-get($body-paddings, 'tablet')
+      padding-right: 10vw
+    +break-point(desktop)
+      +content-wrapper(desktop)
+      padding-left: map-get($body-paddings, 'desktop')
+      padding-right: 30vw
+
+  &-paragraph
+    font-size: $fontsize-paragraph
+    // +ellipsis-multiline($fontsize-paragraph, 1.6, 3)

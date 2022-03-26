@@ -12,6 +12,21 @@ const GET_ALAMAT_URL = gql`
   }
 `;
 
+const GET_COVER_KATEGORI = gql`
+  query getCoverKategori($slug: String!) {
+    coverKategoriProdukCollection(where: { jenisKategoriProduk: { namaKategoriProduk: $slug } }) {
+      items {
+        gambarCoverKategoriProduk {
+          url
+        }
+        jenisKategoriProduk {
+          namaKategoriProduk
+        }
+      }
+    }
+  }
+`;
+
 const GET_ALL_RELATED_PRODUK_ASC = gql`
   query getAllRelatedProdukAsc($slug: String!) {
     produkCollection(
@@ -78,16 +93,25 @@ export const getStaticProps = async ({ params }) => {
     fetchPolicy: 'network-only',
   });
 
+  const { data: dataCover } = await apolloClient.query({
+    query: GET_COVER_KATEGORI,
+    variables: {
+      slug: params.namaKategori,
+    },
+    fetchPolicy: 'network-only',
+  });
+
   return {
     props: {
       data,
+      dataCover,
       params: params.namaKategori,
     },
     revalidate: 1,
   };
 };
 
-const Stuff = ({ data, params }) => {
+const Stuff = ({ data, dataCover, params }) => {
   const [products, setProducts] = useState(data);
 
   const [loadDataDesc, { data: newDataDesc, loading: dataDescLoading }] = useLazyQuery(
@@ -147,8 +171,18 @@ const Stuff = ({ data, params }) => {
 
   return (
     <>
+      <section className="poster2">
+        <div
+          className="poster2-image"
+          style={{
+            backgroundImage: `url(${dataCover.coverKategoriProdukCollection.items[0].gambarCoverKategoriProduk.url})`,
+          }}
+        />
+      </section>
       <div className="container">
-        <h1 className="heading heading--title">{pageTitle}</h1>
+        <h2 className="title--section">
+          <span className="title-sub">{pageTitle}</span>
+        </h2>
         <div className="produkProduk-filter">
           <span className="produkProduk-filterButton" onClick={handleClickDescButton}>
             Urut dari <b>paling mahal</b> ke <b>paling murah</b>
@@ -158,7 +192,9 @@ const Stuff = ({ data, params }) => {
           </span>
         </div>
         {dataDescLoading || dataAscLoading ? (
-          <h1>loading...</h1>
+          <ul className="produkProduk-produkList">
+            <h1>loading...</h1>
+          </ul>
         ) : (
           <ul className="produkProduk-produkList">
             {products?.produkCollection?.items.map((item, id) => {

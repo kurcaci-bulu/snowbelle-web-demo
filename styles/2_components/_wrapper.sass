@@ -1,0 +1,16 @@
+.wrapMe
+  +break-point(mobile)
+    +content-wrapper(mobile)
+    padding-left: map-get($body-paddings, 'mobile')
+    padding-right: map-get($body-paddings, 'mobile')
+  +break-point(tablet)
+    +content-wrapper(tablet)
+    padding-left: map-get($body-paddings, 'tablet')
+    padding-right: map-get($body-paddings, 'tablet')
+  +break-point(desktop)
+    +content-wrapper(desktop)
+    padding-left: map-get($body-paddings, 'desktop')
+    padding-right: map-get($body-paddings, 'desktop')
+
+.wrapMe--normal
+  width: 100%

@@ -1,0 +1,15 @@
+.nav--active
+	top: 0
+	transition: $transition
+
+.nav--sticky
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	z-index: 10
+
+	+break-point(tablet)
+		height: 80px
+	+break-point(desktop)
+		height: 80px

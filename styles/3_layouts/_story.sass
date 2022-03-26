@@ -1,0 +1,50 @@
+.story
+	display: block
+	position: relative
+	+break-point(mobile)
+		padding-top: $m--padding-section
+		padding-bottom: $m--padding-section
+	+break-point(tablet)
+		padding-top: $t--padding-section
+		padding-bottom: $t--padding-section
+	+break-point(desktop)
+		padding-top: $d--padding-section
+		padding-bottom: $d--padding-section
+
+	&-contentWrapper
+		display: flex
+		flex-wrap: wrap
+		flex-direction: row
+		+break-point(tablet)
+			margin-top: 50px
+			margin-left: -10px
+			margin-right: -10px
+		+break-point(desktop)
+			margin-top: 35px
+			margin-right: -20px
+			margin-right: -20px
+	&-paragraph
+		+break-point(tablet)
+			margin-right: 10px
+			width: calc(50% - 10px)
+		+break-point(desktop)
+			margin-right: 20px
+			width: calc(50% - 20px)
+	&-image
+		position: relative
+		width: 80%
+		margin: auto
+
+	&-button
+		+break-point(mobile)
+			display: block
+			position: relative
+			margin: 17px auto 30px
+		+break-point(tablet)
+			display: block
+			position: relative
+			margin: 30px auto 50px
+		+break-point(desktop)
+			position: absolute
+			right: map-get($body-paddings, 'desktop')
+			top: calc( 20px + #{$d--padding-section})

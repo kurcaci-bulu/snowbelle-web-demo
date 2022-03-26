@@ -1,0 +1,110 @@
+// *********************************************
+// Colors
+// *********************************************
+// Text
+$color-text-body: #000;
+$color-text-category_title: #242424;
+$color-text-category_sub: #545353;
+$color-text-category_button: #545353;
+$color-text-title_sub: #cb9067;
+$color-text-title_main: $color-text-body;
+$color-text-footer: #8c8c8c;
+
+// highlight
+$color-highlight: #fafafa;
+$color-nav-ribbon: rgba(#fbfbfb, 0.9);
+// *********************************************
+// Font sizes
+// *********************************************
+// section title
+$m--fontsize-section-title: 18px;
+$t--fontsize-section-title: 26px;
+$d--fontsize-section-title: 30px;
+
+// feature section
+$m--fontsize-featured-title_main: 24px;
+$t--fontsize-featured-title_main: 16px;
+$d--fontsize-featured-title_main: 16px;
+
+$m--fontsize-featured-title_sub: 14px;
+$t--fontsize-featured-title_sub: 16px;
+$d--fontsize-featured-title_sub: 16px;
+
+$m--fontsize-section-button_sub: 24px;
+$t--fontsize-section-button_sub: 18px;
+$d--fontsize-section-button_sub: 24px;
+
+// paragraph
+$fontsize-paragraph: 15px;
+
+// footer
+$m--fontsize-footer: 12px;
+$t--fontsize-footer: 13px;
+$d--fontsize-footer: 14px;
+
+// link
+$m--fontsize-link: 16px;
+$t--fontsize-link: 16px;
+$d--fontsize-link: 16px;
+
+// *********************************************
+// Breakpoints
+// *********************************************
+
+// colors
+$tablet: 320px;
+$tablet: 768px;
+$desktop: 1360px;
+$bp: mobile;
+
+// *********************************************
+// layouts
+// *********************************************
+
+// navbar settings
+$navbar-color: #95395e;
+$navbar-tab-padding: 20px 0;
+$navbar-tab-height: auto;
+$navbar-font-size: 14px;
+
+// body wrapper settings
+$body-paddings: (
+  "mobile": 18px,
+  "tablet": 30px,
+  "desktop": 200px
+);
+
+// featured
+$featured-prod-url--1: "/assets/images/Categories/andrey-trush-619723-unsplash.jpg";
+$featured-prod-url--2: "https://images.unsplash.com/photo-1463851278550-fb90864a5e07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80";
+$m--featured-item-padding: 0.5%;
+$t--featured-item-padding: 1%;
+$d--featured-item-padding: 1%;
+
+// about
+$m--about-wrapper-height: 250px;
+$t--about-wrapper-height: 363px;
+$d--about-wrapper-height: 681px;
+
+$about-bg-url: "/assets/images/Carousel/lukas-blazek-261681-unsplash.jpg";
+
+// padding of sections
+$m--padding-section: 13px;
+$t--padding-section: 50px;
+$d--padding-section: 50px;
+
+// footer
+$m--footer-padding-logo: 24px;
+$t--footer-padding-logo: 24px;
+$d--footer-padding-logo: 24px;
+
+$m--footer-item-width: 114px;
+$t--footer-item-width: 114px;
+$d--footer-item-width: 160px;
+
+// burger
+$burger-size: 30px;
+$burger-spacing: 31%;
+
+// others
+$transition: 0.3s all ease-in-out;

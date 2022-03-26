@@ -1,0 +1,49 @@
+.produkProduk
+	display: flex
+
+.produkProduk-produkList
+	display: grid
+	grid-template-columns: repeat(2, calc(50% - 10px))
+	grid-column-gap: 20px
+	grid-template-rows: 300px
+	grid-row-gap: 100px
+	position: relative
+	padding-bottom: 100px
+	min-height: 400px
+
+.produkProduk-produkItem
+	list-style: none
+
+.produkProduk-nama
+	padding-top: 10px
+
+.produkProduk-harga
+	padding-top: 1px
+
+.produkProduk-gambarList
+	display: grid
+	grid-template-columns: repeat(2, 1fr)
+	grid-column-gap: 2px
+	grid-template-rows: 300px
+	width: 100%
+	height: 100%
+
+.produkProduk-gambarItem
+	width: 100%
+	height: 100%
+	background-position: center
+	background-size: cover
+	background-repeat: no-repeat
+
+.produkProduk-filter
+	display: grid
+	grid-template-columns: 400px
+	grid-row-gap: 18px
+	padding: 10px 0 50px
+
+.produkProduk-filterButton
+	padding: 2px 4px
+	border-radius: 3px
+	border: 1px solid black
+	display: inline-block
+	cursor: pointer

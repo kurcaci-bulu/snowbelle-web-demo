@@ -1,0 +1,53 @@
+.button
+  &--box
+    display: block
+    position: relative
+    overflow: hidden
+    text-align: center
+    line-height: 58px
+    height: 58px
+    border: 1px solid grey
+    transition: $transition
+    &:before
+      transition: $transition
+      content: ''
+      position: absolute
+      top: 0
+      left: -10%
+      right: 0
+      bottom: 0
+      height: 300%
+      width: 120%
+      z-index: -1
+      transform-origin: 30%
+      transform: translateX(-50%) rotate(90deg)
+      background-color: transparent
+
+  &--shop
+    display: inline-flex
+    align-items: bottom
+    position: relative
+    &:before,
+    &:after
+      content: ''
+      position: absolute
+      width: 98%
+      height: 1px
+      background-color: #396C95
+    &:before
+      bottom: 0px
+    &:after
+      bottom: -3px
+      left: -3px
+
+  &-svg--blue
+    svg
+      fill: #396C95
+  &-text
+    font-size: 20px
+  &-icon
+    display: inline-block
+    height: 23px
+    width: 23px
+    margin-top: 5px
+    margin-left: 12px
