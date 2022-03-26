@@ -174,7 +174,7 @@ const Stuff = ({ data, dataCover, params }) => {
       const pertanyaan = encodeURI(
         `Hallo Snow Belle Florist, saya berminat dengan ${produk}, apa bisa dibantu?`
       );
-      const url = 'https://api.whatsapp.com/send?phone=+6281281116881.&text=' + pertanyaan;
+      const url = 'https://api.whatsapp.com/send?phone=6281281116881.&text=' + pertanyaan;
       window.open(url, '_blank').focus();
     },
     [products]
